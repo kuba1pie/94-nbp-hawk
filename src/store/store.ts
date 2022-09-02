@@ -4,15 +4,13 @@ import type { Rate } from "../types/types";
 
 export const useDefaultStore = defineStore("defaultStore", {
   state: () => ({
-    response: {} as Response,
     formData: {
       currencyToSell: 1,
-      currencyToBuy: 0,
       amountToSell: 100,
-      amountToBuy: 0,
     },
     rates: [] as Rate[],
     swap: false as boolean,
+    selectedRate: 0,
   }),
   actions: {
     async getRates() {
@@ -20,6 +18,7 @@ export const useDefaultStore = defineStore("defaultStore", {
       try {
         const data = await axios.get(url);
         this.rates = data.data[0].rates;
+        this.selectedRate = this.rates[1].mid;
       } catch (error) {
         alert(error);
         console.log(error);
@@ -30,11 +29,16 @@ export const useDefaultStore = defineStore("defaultStore", {
     swapValue: (state) =>
       state.swap
         ? (state.formData.amountToSell * state.formData.currencyToSell) /
-          state.formData.currencyToBuy
+          state.selectedRate
         : (state.formData.amountToSell / state.formData.currencyToSell) *
-          state.formData.currencyToBuy,
+          state.selectedRate,
     result: (state) =>
       (state.formData.amountToSell * state.formData.currencyToSell) /
-      state.formData.currencyToBuy,
+      state.selectedRate,
+    resultFixed() {
+      let result: string = this.result.toFixed(2);
+      let parsedResult: number = parseFloat(result);
+      return parsedResult;
+    },
   },
 });

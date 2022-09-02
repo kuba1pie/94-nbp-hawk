@@ -1,6 +1,6 @@
 <template>
-  <select v-model="formData.currencyToSell">
-    <option value="1">PLN - złoty polski</option>
+  <select v-model="formData.currencyToSell" name="currencyToSell">
+    <option :value="1">PLN - złoty polski</option>
     <option
       v-for="currency in currencies"
       :key="currency.code"
@@ -9,8 +9,8 @@
       {{ currency.code }} - {{ currency.currency }}
     </option>
   </select>
-  <select v-model="formData.currencyToBuy">
-    <option value="1">PLN - złoty polski</option>
+  <select v-model="store.selectedRate" name="currencyToBuy">
+    <option :value="1">PLN - złoty polski</option>
     <option
       v-for="currency in currencies"
       :key="currency.code"

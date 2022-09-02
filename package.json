@@ -10,6 +10,8 @@
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "lint fix": "eslint --fix --ext .ts,.vue .",
+    "lint": "eslint --ext .ts,.vue --ignore-path .gitignore --fix src",
+    "format": "prettier .  --write",
     "prepare": "husky install",
     "pre-commit": "lint-staged"
   },
