@@ -17,3 +17,4 @@ store.getRates();
   }
 }
 </style>
+0

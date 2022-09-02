@@ -1,24 +1,34 @@
 <template>
-  <select v-model="formData.currencyToSell" name="currencyToSell">
-    <option :value="1">PLN - złoty polski</option>
-    <option
-      v-for="currency in currencies"
-      :key="currency.code"
-      :value="currency.mid"
+  <div class="selects flex justify-center p-10">
+    <select
+      v-model="formData.currencyToSell"
+      name="currencyToSell"
+      class="text-10 m-3"
     >
-      {{ currency.code }} - {{ currency.currency }}
-    </option>
-  </select>
-  <select v-model="store.selectedRate" name="currencyToBuy">
-    <option :value="1">PLN - złoty polski</option>
-    <option
-      v-for="currency in currencies"
-      :key="currency.code"
-      :value="currency.mid"
+      <option :value="1">PLN - złoty polski</option>
+      <option
+        v-for="currency in currencies"
+        :key="currency.code"
+        :value="currency.mid"
+      >
+        {{ currency.code }} - {{ currency.currency }}
+      </option>
+    </select>
+    <select
+      v-model="store.selectedRate"
+      name="currencyToBuy"
+      class="text-10 m-3"
     >
-      {{ currency.code }} - {{ currency.currency }}
-    </option>
-  </select>
+      <option :value="1">PLN - złoty polski</option>
+      <option
+        v-for="currency in currencies"
+        :key="currency.code"
+        :value="currency.mid"
+      >
+        {{ currency.code }} - {{ currency.currency }}
+      </option>
+    </select>
+  </div>
 </template>
 <script setup lang="ts">
 const store = useDefaultStore();
