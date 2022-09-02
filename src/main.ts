@@ -1,6 +1,6 @@
 import { createApp } from "vue";
 import { createPinia } from "pinia";
-import "./style.sass";
+import "uno.css";
 import App from "./App.vue";
 import { createRouter, createWebHistory } from "vue-router";
 import { createHead } from "@vueuse/head";
@@ -14,4 +14,4 @@ const router = createRouter({
 });
 const head = createHead();
 
-createApp(App).use(router).use(pinia).use(head).mount("#app");
+createApp(App).use(pinia).use(router).use(head).mount("#app");
