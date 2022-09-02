@@ -6,9 +6,7 @@
   </header>
 </template>
 
-<script setup lang="ts">
-const store = useDefaultStore();
-</script>
+<script setup lang="ts"></script>
 <style lang="scss" scope>
 .header {
   border-bottom: 2px solid #333c44;

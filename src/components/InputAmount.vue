@@ -9,7 +9,6 @@ const store = useDefaultStore();
 
 const formData = computed(() => store.formData);
 const $s = store.formData;
-const formInput = computed(() => store.result.toFixed(2));
 const formResult = computed(() => store.result.toFixed(2));
 function swapValues() {
   [store.selectedRate, $s.currencyToSell, $s.amountToSell] = [
