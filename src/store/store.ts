@@ -14,7 +14,7 @@ export const useDefaultStore = defineStore("defaultStore", {
   }),
   actions: {
     async getRates() {
-      const url = "http://api.nbp.pl/api/exchangerates/tables/a/?format=json";
+      const url = "https://api.nbp.pl/api/exchangerates/tables/a/?format=json";
       try {
         const data = await axios.get(url);
         this.rates = data.data[0].rates;
