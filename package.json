@@ -46,10 +46,12 @@
     "vite": "^3.0.4",
     "vite-plugin-pages": "^0.25.0",
     "vitest": "^0.20.3",
-    "vue-tsc": "^0.39.4"
+    "vue-tsc": "^0.39.4",
+    "whatwg-fetch": "^3.6.2"
   },
   "lint-staged": {
-    "*": "prettier --ignore-unknown --write",
-    "*.{ts,vue}": "eslint --fix"
+    "*.{js,ts,tsx,vue,md}": [
+      "eslint --fix"
+    ]
   }
 }

@@ -15,14 +15,11 @@ export const useDefaultStore = defineStore("defaultStore", {
   actions: {
     async getRates() {
       const url = "https://api.nbp.pl/api/exchangerates/tables/a/?format=json";
-      try {
-        const data = await axios.get(url);
-        this.rates = data.data[0].rates;
-        this.selectedRate = this.rates[1].mid;
-      } catch (error) {
-        alert(error);
-        console.log(error);
-      }
+      const data = await axios.get(url);
+      const rates = data;
+
+      this.rates = rates.data[0].rates;
+      this.selectedRate = this.rates[1].mid;
     },
   },
   getters: {
